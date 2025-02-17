@@ -1,0 +1,23 @@
+# Criar o gráfico de colunas empilhadas
+grafico = (
+    ggplot(contagem_rating, aes(x="data_credito", y="contagem", fill="rating")) +
+    geom_bar(stat="identity", position="stack") +
+    geom_text(
+        aes(label="contagem"),
+        position=position_stack(vjust=0.5),
+        size=8,
+        color="white"
+    ) +
+    scale_fill_brewer(type="qual", palette="Set1") +
+    labs(
+        title="Quantidade de Ratings por Data de Crédito",
+        x="Data de Crédito (Ano-Mês)",
+        y="Quantidade de Ratings",
+        fill="Rating"
+    ) +
+    theme_minimal() +
+    theme_minimal() +
+    theme(axis_text_x=element_text(rotation=45, hjust=1))
+)
+
+print(grafico)
